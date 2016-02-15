@@ -1,8 +1,13 @@
 #include "String.h"
 
+
 int main(){
   String s0 = String();
   String s1 = String(5);
-  printf("La longueur de s1 est %d \n", s1.size());
-  printf("La capacité de s1 est %d\n", s1.capacity());
+  printf("%lu \n",s0.size());
+  printf("%lu \n",s1.size());
+  printf("%lu \n",s1.capacity());
+  s1.reserve(10);
+  printf("La capacité de s1 est %lu \n", s1.capacity());
+  printf("La taille de s1 est %lu \n", s1.size());
 }

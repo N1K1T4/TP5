@@ -15,6 +15,12 @@ String::String(size_t capacity){
   _str = new char[_capacity+1];
 }
 
+String::String(const char* s){
+  _size = s._size
+  _capacity = s._capacity
+  _str = new char[s.size]
+}
+
 String::~String(){
   delete[] _str;
   _str = nullptr;

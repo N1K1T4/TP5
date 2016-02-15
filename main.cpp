@@ -10,4 +10,8 @@ int main(){
   s1.reserve(10);
   printf("La capacité de s1 est %lu \n", s1.capacity());
   printf("La taille de s1 est %lu \n", s1.size());
+  printf("%lu \n",s1.size());
+  printf("%lu \n",s1.length());
+  printf("%lu \n",s1.max_size());
+
 }

@@ -4,7 +4,7 @@
 int main(){
   String s0 = String();
   String s1 = String(5);
-  printf("%d \n",s0.size());
-  printf("%d \n",s1.size());
-  printf("%d \n",s1.capacity());
+  printf("%lu \n",s1.size());
+  printf("%lu \n",s1.length());
+  printf("%lu \n",s1.max_size());
 }

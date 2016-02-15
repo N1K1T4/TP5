@@ -1,6 +1,10 @@
 
+
 #ifndef STRING_H__
 #define STRING_H__
+
+#include <stdio.h>
+#include <cstdlib>
 
 class String{
 public:

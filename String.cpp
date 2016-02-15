@@ -1,7 +1,7 @@
 
 #include "String.h"
 
-int String::size_max = 0;
+int String::size_max = 100;
 
 String::String(){
   _size = 0;
@@ -9,8 +9,8 @@ String::String(){
   _str = nullptr;
 }
 
-String::String(int capacity){
-  _size = capacity;
+String::String(size_t capacity){
+  _size = 0;
   _capacity = capacity;
   _str = new char[_capacity+1];
 }

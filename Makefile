@@ -10,7 +10,7 @@ main.o: main.cpp String.h
 	$(CC) $(CFLAGS) -c main.cpp
 
 String.o: String.cpp String.h
-	$(CC) $(CFLAGS) -c Polynomial.cpp
+	$(CC) $(CFLAGS) -c String.cpp
 
 clean:
 	rm -rf ./main ./*.o

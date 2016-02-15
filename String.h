@@ -1,6 +1,6 @@
 
 #ifndef STRING_H__
-#def STRING_H__
+#define STRING_H__
 
 class String{
 public:
@@ -34,3 +34,5 @@ inline int String::size() const{
 inline int String::capacity() const{
 	return _capacity;
 }
+
+#endif

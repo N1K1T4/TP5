@@ -11,8 +11,8 @@ String::String(){
 
 String::String(int capacity){
   _size = capacity;
-  _capacity = capacity + 1;
-  _str = new char[_capacity];
+  _capacity = capacity;
+  _str = new char[_capacity+1];
 }
 
 String::~String(){

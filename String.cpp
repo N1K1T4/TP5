@@ -10,7 +10,7 @@ String::String(){
 }
 
 String::String(size_t capacity){
-  _size = capacity;
+  _size = 0;
   _capacity = capacity;
   _str = new char[_capacity+1];
 }
@@ -19,3 +19,8 @@ String::~String(){
   delete[] _str;
   _str = nullptr;
 }
+
+void String::resize(size_t n){
+  
+}
+

@@ -22,9 +22,11 @@ public:
 //======================================================================
 //             PUBLIC METHODS
 //======================================================================
-
+  void resize(size_t);
   inline size_t size() const;
   inline size_t capacity() const;  
+  inline size_t length() const;
+  inline size_t max_size() const;
 
 protected:
   static size_t size_max;
@@ -41,7 +43,13 @@ inline size_t String::capacity() const{
 	return _capacity;
 }
 
+inline size_t String::length() const{
+  return _size;
+}
 
+inline size_t String::max_size() const{
+  return size_max;
+}
 
 
 

@@ -3,14 +3,17 @@ CFLAGS = -g -Wall -Wextra -pedantic -std=c++11
 
 all: main
 
-main: main.o String.o
-	$(CC) $(CFLAGS) main.o String.o -o main
+main: main.o string.o
+	$(CC) $(CFLAGS) main.o string.o -o main
 
-main.o: main.cpp String.h
+main.o: main.cpp string.h
 	$(CC) $(CFLAGS) -c main.cpp
 
-String.o: String.cpp String.h
-	$(CC) $(CFLAGS) -c String.cpp
+string.o: string.cpp string.h
+	$(CC) $(CFLAGS) -c string.cpp
 
 clean:
 	rm -rf ./main ./*.o
+
+cleantemp:
+	rm -rf ./*~ ./.*~

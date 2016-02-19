@@ -1,15 +1,15 @@
-#include "String.h"
+#include "string.h"
 
-size_t String::_max_size = 100;
+size_t string::_max_size = 100;
 
-String::String()
+string::string()
 {
 	_capacity = 0;
 	_size = 0;
 	_str = nullptr;
 }
 
-String::String(size_t capacity)
+string::string(size_t capacity)
 {
 	_capacity = capacity;
 	_size = 0;
@@ -17,7 +17,7 @@ String::String(size_t capacity)
 	_str[_size] = '\0';
 }
 
-String::String(size_t capacity, char c)
+string::string(size_t capacity, char c)
 {
 	_capacity = capacity;
 	_size = _capacity;
@@ -29,7 +29,7 @@ String::String(size_t capacity, char c)
 	_str[_size] = '\0';
 }
 
-String::String(const char* s)
+string::string(const char* s)
 {
 	_capacity = sizeof(s)/sizeof(char)-1;
 	_size = _capacity;
@@ -37,18 +37,18 @@ String::String(const char* s)
 	//TODO remplir _str (Ambre)
 }
 
-String::~String()
+string::~string()
 {
 	delete[] _str;
 	_str = nullptr;
 }
 
-bool String::empty()
+bool string::empty()
 {
 	return _size == 0;
 }
 
-void String::reserve(size_t length)
+void string::reserve(size_t length)
 {
 	if (length > _capacity)
 	{
@@ -63,7 +63,7 @@ void String::reserve(size_t length)
 	}
 }
 
-void String::resize(size_t n)
+void string::resize(size_t n)
 {
 	//TODO définir resize (Ambre)
 }

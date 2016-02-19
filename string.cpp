@@ -121,7 +121,18 @@ const string& string::operator = (const char* s)
 
 const string& string::operator = (const string& s)
 {
-	
+	if (&s != this)
+	{
+		_capacity = s.capacity();
+		_size = s.size();
+		delete[] _str;
+		_str = new char[_capacity+1];
+		for (int i=0; i<(int)_size+1; i++)
+		{
+			_str[i] = s(i);
+		}
+	}
+	return *this;
 }
 
 void string::operator + (const char c)

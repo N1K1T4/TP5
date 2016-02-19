@@ -30,5 +30,8 @@ int main(int argc,char* argv[])
 	s3+('c');
 	printf(s3.c_str());
 	printf("\n");
+	s2=s3;
+	printf(s2.c_str());
+	printf("\n");
 	return EXIT_SUCCESS;
 }

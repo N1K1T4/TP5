@@ -28,7 +28,7 @@ public:
 	bool empty();
 	char* c_str();
 	void clear();
-	void resize(size_t);
+	void resize(size_t length);
 	void reserve(size_t length);
 //======================================================================
 //             PUBLIC OPERATORS

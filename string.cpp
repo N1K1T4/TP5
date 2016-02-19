@@ -6,7 +6,8 @@ string::string()
 {
 	_capacity = 0;
 	_size = 0;
-	_str = nullptr;
+	_str = new char[_capacity+1];
+	_str[_size]='\0';
 }
 
 string::string(size_t capacity)
@@ -70,6 +71,14 @@ char* string::c_str()
 	return str;
 }
 
+void string::clear()
+{
+	delete[] _str;
+	_str = new char[_capacity+1];
+	_size = 0;
+	_str[_size] = '\0';
+}
+
 void string::reserve(size_t length)
 {
 	if (length > _capacity)
@@ -85,7 +94,7 @@ void string::reserve(size_t length)
 	}
 }
 
-void string::resize(size_t n)
+void string::resize(size_t length)
 {
 	//TODO définir resize (Ambre)
 }

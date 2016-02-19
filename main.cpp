@@ -24,5 +24,8 @@ int main(int argc,char* argv[])
 	s3[1]='b';
 	printf(s3.c_str());
 	printf("\n");
+	s3.clear();
+	printf("%lu \n",s3.capacity());
+	printf("%lu \n",s3.size());
 	return EXIT_SUCCESS;
 }

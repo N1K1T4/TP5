@@ -21,5 +21,8 @@ int main(int argc,char* argv[])
 	printf("%lu \n",s3.capacity());
 	printf("%lu \n",s3.size());
 	printf("%c\n",s3(4));
+	s3[1]='b';
+	printf(s3.c_str());
+	printf("\n");
 	return EXIT_SUCCESS;
 }

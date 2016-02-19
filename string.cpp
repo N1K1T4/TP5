@@ -60,6 +60,16 @@ bool string::empty()
 	return _size == 0;
 }
 
+char* string::c_str()
+{
+	char* str = new char[_size+1];
+	for (int i=0; i<(int)_size+1; i++)
+	{
+		str[i]=_str[i];
+	}
+	return str;
+}
+
 void string::reserve(size_t length)
 {
 	if (length > _capacity)

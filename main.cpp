@@ -1,10 +1,12 @@
 #include <cstdio>
 #include "string.h"
 
-int main()
+int main(int argc,char* argv[])
 {
-	string s0 = string();
-	string s1 = string(5);
+	string s0;
+	string s1(5);
+	string s2(5,'a');
+	string s3(s2);
 	printf("%lu \n",s0.size());
 	printf("%lu \n",s1.size());
 	printf("%lu \n",s1.capacity());
@@ -14,4 +16,10 @@ int main()
 	printf("%lu \n",s1.size());
 	printf("%lu \n",s1.length());
 	printf("%lu \n",s1.max_size());
+	printf("%c\n",s2(2));
+	printf("%c\n",s2(5));
+	printf("%lu \n",s3.capacity());
+	printf("%lu \n",s3.size());
+	printf("%c\n",s3(4));
+	return EXIT_SUCCESS;
 }

@@ -29,6 +29,18 @@ string::string(size_t capacity, char c)
 	_str[_size] = '\0';
 }
 
+string::string(const string& s)
+{
+	_capacity = s.capacity();
+	_size = s.size();
+	_str = new char[_capacity+1];
+	for (int i=0; i<(int)_size; i++)
+	{
+		_str[i] = s(i);
+	}
+	_str[_size] = '\0';
+}
+
 string::string(const char* s)
 {
 	_capacity = sizeof(s)/sizeof(char)-1;
@@ -66,4 +78,14 @@ void string::reserve(size_t length)
 void string::resize(size_t n)
 {
 	//TODO définir resize (Ambre)
+}
+
+char string::operator () (int i) const
+{
+	return _str[i%(_capacity+1)];
+}
+
+char& string::operator [] (int i)
+{
+	return _str[i%(_capacity+1)];
 }

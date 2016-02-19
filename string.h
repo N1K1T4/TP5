@@ -12,8 +12,8 @@ public:
 	string();
 	string(size_t capacity);
 	string(size_t capacity, char c);
-	string(const string& s); // copy constructor
-	string(const char* s); // c-string constructor
+	string(const string& s);
+	string(const char* s);
 	~string();
 //======================================================================
 //             GETTERS
@@ -33,6 +33,8 @@ public:
 //======================================================================
 //             PUBLIC OPERATORS
 //======================================================================
+	char operator () (int i) const;
+	char& operator [] (int i);
 	const string& operator = (const char c);
 	const string& operator = (const char* s);
 	const string& operator = (const string& s);

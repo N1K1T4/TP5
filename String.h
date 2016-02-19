@@ -1,6 +1,8 @@
 #ifndef STRING_H__
 #define STRING_H__
 
+#include <cstdlib>
+
 class String
 {
 public:

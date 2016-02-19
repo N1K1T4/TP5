@@ -47,7 +47,7 @@ string::string(const char* s)
 	_capacity = sizeof(s)/sizeof(char)-1;
 	_size = _capacity;
 	_str = new char[_capacity+1];
-	//TODO remplir _str (Ambre)
+	//TODO remplir _str @Ambre
 }
 
 string::~string()
@@ -96,7 +96,7 @@ void string::reserve(size_t length)
 
 void string::resize(size_t length)
 {
-	//TODO définir resize (Ambre)
+	//TODO définir resize @Ambre
 }
 
 char string::operator () (int i) const
@@ -107,4 +107,47 @@ char string::operator () (int i) const
 char& string::operator [] (int i)
 {
 	return _str[i%(_capacity+1)];
+}
+
+const string& string::operator = (const char c)
+{
+	//TODO définir =(char) @Ambre
+}
+
+const string& string::operator = (const char* s)
+{
+	//TODO définir =(char*) @Marianne
+}
+
+const string& string::operator = (const string& s)
+{
+	
+}
+
+void string::operator + (const char c)
+{
+	if (_size == _capacity)
+	{
+		_capacity++;
+		char* str = new char[_capacity+1];
+		for (int i=0; i<(int)_size; i++)
+		{
+			str[i] = _str[i];
+		}
+		delete[] _str;
+		_str = str;
+	}
+	_str[_size] = c;
+	_size++;
+	_str[_size] = '\0';
+}
+
+void string::operator + (const char* s)
+{
+	//TODO définir +(char*) @Ambre
+}
+
+void string::operator + (const string s)
+{
+	//TODO définir +(string) @Marianne
 }

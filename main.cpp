@@ -1,7 +1,9 @@
+#include <cstdio>
+#include <cstdlib>
 #include "String.h"
 
-
-int main(){
+int main()
+{
   String s0 = String();
   String s1 = String(5);
   printf("%lu \n",s0.size());
@@ -13,5 +15,4 @@ int main(){
   printf("%lu \n",s1.size());
   printf("%lu \n",s1.length());
   printf("%lu \n",s1.max_size());
-
 }

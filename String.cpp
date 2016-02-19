@@ -14,12 +14,25 @@ String::String(size_t capacity)
 	_capacity = capacity;
 	_size = 0;
 	_str = new char[_capacity+1];
+	_str[_size] = '\0';
+}
+
+String::String(size_t capacity, char c)
+{
+	_capacity = capacity;
+	_size = _capacity;
+	_str = new char[_capacity+1];
+	for (int i=0; i<(int)_size; i++)
+	{
+		_str[i] = c;
+	}
+	_str[_size] = '\0';
 }
 
 String::String(const char* s)
 {
-	_size = sizeof(s)/sizeof(char)-1;
-	_capacity = _size;
+	_capacity = sizeof(s)/sizeof(char)-1;
+	_size = _capacity;
 	_str = new char[_capacity+1];
 	//TODO remplir _str (Ambre)
 }

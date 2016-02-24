@@ -109,6 +109,11 @@ char& string::operator [] (int i)
 	return _str[i%(_capacity+1)];
 }
 
+const char& string::operator [] (int i) const
+{
+  return _str[i%(_capacity+1)];
+}
+
 const string& string::operator = (const char c)
 {
 	//TODO définir =(char) @Ambre

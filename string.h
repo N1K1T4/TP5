@@ -35,12 +35,11 @@ public:
 //======================================================================
 	char operator () (int i) const;
 	char& operator [] (int i);
+  const char& operator [] (int i) const;
 	const string& operator = (const char c);
 	const string& operator = (const char* s);
 	const string& operator = (const string& s);
-	void operator + (const char c);
-	void operator + (const char* s);
-	void operator + (const string s);
+  
 private:
 //======================================================================
 //             PRIVATE ATTRIBUTES
@@ -50,6 +49,18 @@ private:
 	size_t _capacity;
 	char* _str;
 };
+
+//======================================================================
+//             EXTERN METHODS
+//======================================================================
+// Les opérateurs + doivent être externes à la classe et prendre deux
+// éléments en argument (2 string, un char + un string...)
+string operator + (const string& s,const char c);
+string operator + (const string& lhs, const char* rhs);
+string operator + (const string& lhs, const string& rhs);
+//======================================================================
+//             INLINE METHODS
+//======================================================================
 
 inline size_t string::capacity() const
 {

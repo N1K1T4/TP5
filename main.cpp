@@ -33,5 +33,9 @@ int main(int argc,char* argv[])
 	s2=s3;
 	printf(s2.c_str());
 	printf("\n");
-	return EXIT_SUCCESS;
+  string s4 = s2 + s3;
+  printf("La longueur de s2+s3 est %lu \n", s4.size());
+  s1 = "Ceci est un string";
+  printf("%c\n",s1(0));
+  return EXIT_SUCCESS;
 }

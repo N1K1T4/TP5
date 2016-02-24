@@ -116,7 +116,15 @@ const string& string::operator = (const char c)
 
 const string& string::operator = (const char* s)
 {
-	//TODO définir =(char*) @Marianne
+  int length = sizeof(s)/sizeof(char);
+  _capacity = length;
+  delete[] _str;
+  _str = new char[_capacity+1];
+  for (int i=0; i<length; i++){
+    _str[i] = s[i];
+    _size++;
+  }
+  return *this;
 }
 
 const string& string::operator = (const string& s)
@@ -158,7 +166,18 @@ void string::operator + (const char* s)
 	//TODO définir +(char*) @Ambre
 }
 
-void string::operator + (const string s)
+string operator + (const string& lhs, const string& rhs)
 {
-	//TODO définir +(string) @Marianne
+  size_t capacity = lhs.capacity() + rhs.capacity();
+  size_t size = lhs.size() + rhs.size();
+  string s = string(capacity);
+  s.resize(size);
+  for (int i=0; i<int(lhs.size()); i++){
+    s[i] = lhs[i];
+  }
+  for (int i=int(lhs.size()); i<int(capacity); i++)
+  {
+    s[i] = rhs[i];
+  }
+  return s;
 }

@@ -148,7 +148,7 @@ const string& string::operator = (const string& s)
 	return *this;
 }
 
-void string::operator + (const char c) // A refaire
+void string::operator + (const char c) // A corriger
 {
 	if (_size == _capacity)
 	{

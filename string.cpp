@@ -148,7 +148,7 @@ const string& string::operator = (const string& s)
 	return *this;
 }
 
-void string::operator + (const char c)
+void string::operator + (const char c) // A refaire
 {
 	if (_size == _capacity)
 	{
@@ -166,7 +166,7 @@ void string::operator + (const char c)
 	_str[_size] = '\0';
 }
 
-void string::operator + (const char* s)
+void string::operator + (const string& lhs, const char* rhs)
 {
 	//TODO définir +(char*) @Ambre
 }

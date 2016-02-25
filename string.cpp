@@ -111,7 +111,7 @@ char& string::operator [] (int i)
 
 const char& string::operator [] (int i) const
 {
-  return _str[i%(_capacity+1)];
+	return _str[i%(_capacity+1)];
 }
 
 const string& string::operator = (const char c)
@@ -121,15 +121,15 @@ const string& string::operator = (const char c)
 
 const string& string::operator = (const char* s)
 {
-  int length = sizeof(s)/sizeof(char);
-  _capacity = length;
-  delete[] _str;
-  _str = new char[_capacity+1];
-  for (int i=0; i<length; i++){
-    _str[i] = s[i];
-    _size++;
-  }
-  return *this;
+	int length = sizeof(s)/sizeof(char);
+	_capacity = length;
+	delete[] _str;
+	_str = new char[_capacity+1];
+	for (int i=0; i<length; i++){
+		_str[i] = s[i];
+		_size++;
+	}
+	return *this;
 }
 
 const string& string::operator = (const string& s)
@@ -148,41 +148,35 @@ const string& string::operator = (const string& s)
 	return *this;
 }
 
-void string::operator + (const char c) // A corriger
+string operator + (const string& lhs, const char rhs)
 {
-	if (_size == _capacity)
+	string s(lhs.size()+1);
+	for (int i=0; i<(int)lhs.size(); i++)
 	{
-		_capacity++;
-		char* str = new char[_capacity+1];
-		for (int i=0; i<(int)_size; i++)
-		{
-			str[i] = _str[i];
-		}
-		delete[] _str;
-		_str = str;
+		s[i] = lhs(i);
 	}
-	_str[_size] = c;
-	_size++;
-	_str[_size] = '\0';
+	s[lhs.size()] = rhs;
+	s.resize(lhs.size()+1);
+	return s;
 }
 
-void string::operator + (const string& lhs, const char* rhs)
+string operator + (const string& lhs, const char* rhs)
 {
 	//TODO définir +(char*) @Ambre
 }
 
 string operator + (const string& lhs, const string& rhs)
 {
-  size_t capacity = lhs.capacity() + rhs.capacity();
-  size_t size = lhs.size() + rhs.size();
-  string s = string(capacity);
-  s.resize(size);
-  for (int i=0; i<int(lhs.size()); i++){
-    s[i] = lhs[i];
-  }
-  for (int i=int(lhs.size()); i<int(capacity); i++)
-  {
-    s[i] = rhs[i];
-  }
-  return s;
+	size_t capacity = lhs.capacity() + rhs.capacity();
+	size_t size = lhs.size() + rhs.size();
+	string s = string(capacity);
+	s.resize(size);
+	for (int i=0; i<int(lhs.size()); i++){
+		s[i] = lhs[i];
+	}
+	for (int i=int(lhs.size()); i<int(capacity); i++)
+	{
+		s[i] = rhs[i];
+	}
+	return s;
 }

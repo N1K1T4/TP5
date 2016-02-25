@@ -35,7 +35,7 @@ public:
 //======================================================================
 	char operator () (int i) const;
 	char& operator [] (int i);
-  const char& operator [] (int i) const;
+	const char& operator [] (int i) const;
 	const string& operator = (const char c);
 	const string& operator = (const char* s);
 	const string& operator = (const string& s);
@@ -55,7 +55,7 @@ private:
 //======================================================================
 // Les opérateurs + doivent être externes à la classe et prendre deux
 // éléments en argument (2 string, un char + un string...)
-string operator + (const string& s,const char c);
+string operator + (const string& lhs, const char rhs);
 string operator + (const string& lhs, const char* rhs);
 string operator + (const string& lhs, const string& rhs);
 //======================================================================

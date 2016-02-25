@@ -27,15 +27,19 @@ int main(int argc,char* argv[])
 	s3.clear();
 	printf("%lu \n",s3.capacity());
 	printf("%lu \n",s3.size());
-	s3+('c');
-	printf(s3.c_str());
-	printf("\n");
 	s2=s3;
 	printf(s2.c_str());
 	printf("\n");
-  string s4 = s2 + s3;
-  printf("La longueur de s2+s3 est %lu \n", s4.size());
-  s1 = "Ceci est un string";
-  printf("%c\n",s1(18));
-  return EXIT_SUCCESS;
+	s3=s3+'C';
+	string s4 = s2 + s3;
+	printf("La longueur de s2+s3 est %lu \n", s4.size());
+	s1 = "Ceci est un string";
+	printf("%c\n",s1(18));
+	string s5=s4+'c';
+	printf("%lu \n",s5.size());
+	printf(s5.c_str());
+	printf("%c\n",s5(0));
+	printf("%c\n",s5(1));
+	printf("\n");
+	return EXIT_SUCCESS;
 }

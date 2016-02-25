@@ -39,5 +39,7 @@ int main(int argc,char* argv[])
 	printf("%lu \n",s5.size());
 	printf(s5.c_str());
 	printf("\n");
+	printf(s1(17));
+	printf("\n");
 	return EXIT_SUCCESS;
 }

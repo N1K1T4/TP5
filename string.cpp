@@ -101,17 +101,17 @@ void string::resize(size_t length)
 
 char string::operator () (int i) const
 {
-	return _str[i%(_capacity+1)];
+	return _str[i%(_size+2)];
 }
 
 char& string::operator [] (int i)
 {
-	return _str[i%(_capacity)];
+	return _str[i%(_capacity+2)];
 }
 
 const char& string::operator [] (int i) const
 {
-	return _str[i%(_capacity+1)];
+	return _str[i%(_capacity+2)];
 }
 
 const string& string::operator = (const char c)

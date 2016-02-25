@@ -38,8 +38,6 @@ int main(int argc,char* argv[])
 	string s5=s4+'c';
 	printf("%lu \n",s5.size());
 	printf(s5.c_str());
-	printf("%c\n",s5(0));
-	printf("%c\n",s5(1));
 	printf("\n");
 	return EXIT_SUCCESS;
 }

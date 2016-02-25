@@ -106,7 +106,7 @@ char string::operator () (int i) const
 
 char& string::operator [] (int i)
 {
-	return _str[i%(_capacity+1)];
+	return _str[i%(_capacity)];
 }
 
 const char& string::operator [] (int i) const

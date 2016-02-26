@@ -103,17 +103,17 @@ void string::resize(size_t length, char c)
 
 char string::operator () (int i) const
 {
-	return _str[i%(_size+2)];
+	return _str[i%(_size+1)];
 }
 
 char& string::operator [] (int i)
 {
-	return _str[i%(_capacity+2)];
+	return _str[i%(_capacity+1)];
 }
 
 const char& string::operator [] (int i) const
 {
-	return _str[i%(_capacity+2)];
+	return _str[i%(_capacity+1)];
 }
 
 const string& string::operator = (const char c)
@@ -132,6 +132,21 @@ const string& string::operator = (const char* s)
 		_str[i] = s[i];
 		_size++;
 	}
+	/*
+	size_t length = 0;
+	while (s[length] != '\0')
+	{
+		length++;
+	}
+	_capacity = length;
+	_size = length;
+	delete[] _str;
+	_str = new char[length++];
+	for (int i = 0; i < (int)length; i++)
+	{
+		_str[i] = s[i];
+	}
+	*/
 	return *this;
 }
 

@@ -53,7 +53,7 @@ string::~string()
 	_str = nullptr;
 }
 
-bool string::empty()
+bool string::empty() const
 {
 	return _size == 0;
 }
@@ -92,6 +92,11 @@ void string::reserve(size_t length)
 }
 
 void string::resize(size_t length)
+{
+	//TODO définir resize @Ambre
+}
+
+void string::resize(size_t length, char c)
 {
 	//TODO définir resize @Ambre
 }

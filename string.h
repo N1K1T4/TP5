@@ -25,10 +25,11 @@ public:
 //======================================================================
 //             PUBLIC METHODS
 //======================================================================
-	bool empty();
+	bool empty() const;
 	const char* c_str() const;
 	void clear();
 	void resize(size_t length);
+	void resize(size_t length, char c);
 	void reserve(size_t length);
 //======================================================================
 //             PUBLIC OPERATORS

@@ -141,7 +141,7 @@ const string& string::operator = (const char* s)
 	_size = _capacity = length;
 	delete[] _str;
 	_str = new char[length++];
-	for (int i = 0; i < (int)length; i++)
+	for (size_t i = 0; i < length; i++)
 	{
 		_str[i] = s[i];
 	}

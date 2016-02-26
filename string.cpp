@@ -134,12 +134,11 @@ const string& string::operator = (const char* s)
 	}
 	/*
 	size_t length = 0;
-	while (s[length] != '\0')
+	while (s[length] != 0)
 	{
 		length++;
 	}
-	_capacity = length;
-	_size = length;
+	_size = _capacity = length;
 	delete[] _str;
 	_str = new char[length++];
 	for (int i = 0; i < (int)length; i++)

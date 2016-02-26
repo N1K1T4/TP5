@@ -34,12 +34,25 @@ int main(int argc,char* argv[])
 	string s4 = s2 + s3;
 	printf("La longueur de s2+s3 est %lu \n", s4.size());
 	s1 = "Ceci est un string";
+	printf("%lu \n",s1.size());
+	printf(s1.c_str());
+	printf("\n");
 	printf("%c\n",s1(18));
 	string s5=s4+'c';
 	printf("%lu \n",s5.size());
 	printf(s5.c_str());
 	printf("\n");
-	printf(s1(17));
+	printf("%c\n",s1(17));
+	printf("début test s6\n");
+	string s6 = "Ceci est un string";
+	printf("taille : %lu\n",s6.size());
+	printf("capacité : %lu\n",s6.capacity());
+	printf("char 0 : %c\n",s1(0));
+	printf("char 1 : %c\n",s1(1));
+	printf("char 2 : %c\n",s1(2));
+	printf("chaîne : ");
+	printf(s6.c_str());
 	printf("\n");
+	printf("fin test s6\n");
 	return EXIT_SUCCESS;
 }

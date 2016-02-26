@@ -26,7 +26,7 @@ public:
 //             PUBLIC METHODS
 //======================================================================
 	bool empty();
-	char* c_str();
+	const char* c_str() const;
 	void clear();
 	void resize(size_t length);
 	void reserve(size_t length);

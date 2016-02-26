@@ -44,10 +44,7 @@ string::string(const string& s)
 
 string::string(const char* s)
 {
-	_capacity = sizeof(s)/sizeof(char)-1;
-	_size = _capacity;
-	_str = new char[_capacity+1];
-	//TODO remplir _str @Ambre
+	//TODO définir le constructeur à partir d'une c-string @Ambre
 }
 
 string::~string()
@@ -61,7 +58,7 @@ bool string::empty()
 	return _size == 0;
 }
 
-char* string::c_str()
+const char* string::c_str() const
 {
 	char* str = new char[_size+1];
 	for (int i=0; i<(int)_size+1; i++)
@@ -125,7 +122,8 @@ const string& string::operator = (const char* s)
 	_capacity = length;
 	delete[] _str;
 	_str = new char[_capacity+1];
-	for (int i=0; i<length; i++){
+	for (int i=0; i<length; i++)
+	{
 		_str[i] = s[i];
 		_size++;
 	}
@@ -140,10 +138,11 @@ const string& string::operator = (const string& s)
 		_size = s.size();
 		delete[] _str;
 		_str = new char[_capacity+1];
-		for (int i=0; i<(int)_size+1; i++)
+		for (int i=0; i<(int)_size; i++)
 		{
 			_str[i] = s(i);
 		}
+		_str[_size] = '\0';
 	}
 	return *this;
 }

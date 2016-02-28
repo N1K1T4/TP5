@@ -44,13 +44,26 @@ string::string(const string& s)
 
 string::string(const char* s)
 {
-	//TODO définir le constructeur à partir d'une c-string @Ambre
+	int i = 0;
+
+	while (s[i])
+	{
+		i++;
+	}
+	_size = i;
+	_capacity = i;
+	_str = new char[_capacity + 1];
+	for (int i=0; i<(int)_size; i++)
+	{
+		_str[i] = s[i];
+	}
+	_str[_size] = '\0';
 }
 
 string::~string()
 {
 	delete[] _str;
-	_str = nullptr;
+	_str = 0;
 }
 
 bool string::empty() const
@@ -93,12 +106,68 @@ void string::reserve(size_t length)
 
 void string::resize(size_t length)
 {
-	//TODO définir resize @Ambre
+	if (length > _capacity)
+	{
+		char *tmp = new char[length + 1];
+		for (int i=0; i<(int)_size; i++)
+		{
+			tmp[i] = _str[i];
+		}
+		for (int i=_size; i<(int)length; i++)
+		{
+			tmp[i] = 0;
+		}
+		delete _str;
+		_str = tmp;
+		_capacity = length;
+		_size = length;
+	}
+	else if (length > _size)
+	{//agrandir la chaine, capacité suffisante pas besoin de reallouer
+		for (int i=_size; i<(int)length; i++)
+		{
+			_str[i] = 0;
+		}
+		_size = length;
+	}
+	else
+	{// couper la chaine
+		_str[length] = 0;
+		_size = length;
+	}
 }
 
 void string::resize(size_t length, char c)
 {
-	//TODO définir resize @Ambre
+	if (length > _capacity)
+	{//capacity insuffisante, on cree une nouvelle chaine
+		char *tmp = new char[length + 1];
+		for (int i=0; i<(int)_size; i++)
+		{
+			tmp[i] = _str[i];
+		}
+		for (int i=_size; i<(int)length; i++)
+		{
+			tmp[i] = c;
+		}
+		delete _str;
+		_str = tmp;
+		_capacity = length;
+		_size = length;
+	}
+	else if (length > _size)
+	{//agrandir la chaine, capacité suffisante pas besoin de reallouer
+		for (int i=_size; i<(int)length; i++)
+		{
+			_str[i] = c;
+		}
+		_size = length;
+	}
+	else
+	{// couper la chaine
+		_str[length] = 0;
+		_size = length;
+	}
 }
 
 char string::operator () (int i) const
@@ -118,7 +187,9 @@ const char& string::operator [] (int i) const
 
 const string& string::operator = (const char c)
 {
-	//TODO définir =(char) @Ambre
+	(*this).resize(1);
+	_str[0] = c;
+	return *this;
 }
 
 const string& string::operator = (const char* s)
@@ -180,7 +251,23 @@ string operator + (const string& lhs, const char rhs)
 
 string operator + (const string& lhs, const char* rhs)
 {
-	//TODO définir +(char*) @Ambre
+	int i = 0;
+
+	while (rhs[i])
+	{
+		i++;
+	}
+	string s;
+	s.resize(lhs.size() + i);
+	for (unsigned int j = 0; j < lhs.size(); j++)
+	{
+		s[j] = lhs[j];
+	}
+	for (int j = 0; j < i; j++)
+	{
+		s[j + lhs.size()] = rhs[j];
+	}
+	return s;
 }
 
 string operator + (const string& lhs, const string& rhs)

@@ -162,6 +162,7 @@ void string::resize(size_t length, char c)
 			_str[i] = c;
 		}
 		_size = length;
+		_str[_size] = '\0';
 	}
 	else
 	{// couper la chaine
@@ -194,16 +195,6 @@ const string& string::operator = (const char c)
 
 const string& string::operator = (const char* s)
 {
-	int length = sizeof(s)/sizeof(char);
-	_capacity = length;
-	delete[] _str;
-	_str = new char[_capacity+1];
-	for (int i=0; i<length; i++)
-	{
-		_str[i] = s[i];
-		_size++;
-	}
-	/*
 	size_t length = 0;
 	while (s[length] != 0)
 	{
@@ -216,7 +207,6 @@ const string& string::operator = (const char* s)
 	{
 		_str[i] = s[i];
 	}
-	*/
 	return *this;
 }
 
